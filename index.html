@@ -671,6 +671,7 @@ async function doRegister() {
 }
 
 async function doLogout() {
+  setView('app', false);     // ← adiciona essa linha
   if (unsubProjects) unsubProjects();
   if (unsubTasks)    unsubTasks();
   PROJECTS = []; TASKS = [];
@@ -687,6 +688,7 @@ function toggleRegister(show) {
 //  ENTRAR NO APP
 // ════════════════════════════
 function enterApp(user) {
+  setView('login', false);   // ← adiciona essa linha
   const name = user.displayName || user.email;
   document.getElementById('user-name-display').textContent = name;
   document.getElementById('user-avatar').textContent = name[0].toUpperCase();
